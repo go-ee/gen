@@ -29,20 +29,20 @@ func main() {
 	runner.Usage = name
 	runner.Version = "1.0"
 
-	runner.Commands = []cli.Command{
+	runner.Commands = []*cli.Command{
 		{
 			Name:  "json2csv",
 			Usage: "Flatten JSON structure to CSV",
 			Flags: []cli.Flag{
-				cli.StringFlag{
+				&cli.StringFlag{
 					Name:  fmt.Sprintf("%v, %v", flagPattern, "p"),
 					Usage: "RegExp pattern with named groups, e.g. (?s)(?P<label>.+?)(?P<json>\\{.+?\\})\"",
 				},
-				cli.StringFlag{
+				&cli.StringFlag{
 					Name:  fmt.Sprintf("%v, %v", flagSource, "s"),
 					Usage: "Source file or folder",
 				},
-				cli.StringFlag{
+				&cli.StringFlag{
 					Name:  fmt.Sprintf("%v, %v", flagTarget, "t"),
 					Usage: "Target file or folder",
 				},
